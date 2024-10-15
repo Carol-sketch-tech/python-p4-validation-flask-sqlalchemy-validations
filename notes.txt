@@ -1,0 +1,37 @@
+FLASK SQLALCHEMY
+CONTEXT: DATABASE AND DATA VALIDITY.
+
+what are validation.
+    in python validation are special method calls that fo at the top model calss defination and prevent them from being 
+    saved to the database of their data doesnt look right.
+    validation consist of code that performa the job of protecting the database from invalid data
+    sqlalchemy can validate our models fore they can even touch teh database.
+    this means its harder to end up with bad data which can cause problems later even if out code is technically bug free.'
+
+    we can use SQLAlchemt helper methods like validates() to set things up.
+
+
+SQLALchemy Validations vs database Contraints
+    SQLAlchemy validationa are added in the modesl files, these validataion are typically added through migrations.
+
+    Database contrainsts and model validation are slose fucntionally different.
+        1.Database contrainsts - will always be checked when adding or updating data in the database
+        2. SQLAlchemy validations will only be checked when adding or updation data through the SQLalchemy ORM 
+
+what is an invalid data?  
+
+
+    in the file models.py in server foder a function valid_email() is created that prevents the object from being saved if its valid_email
+    attribute foes not include @
+    we can return a custom message by running ValueError with the message.
+
+    Validates is used to validation.
+        first one need to use a decorator which takes a string of the columns you want to validate.
+        the first argumeny is the key you want to validate(in this instance ii is email)
+        and the second argument is the value of what we ewant to validate
+        note that we can pass several column in to the validate decorator that we want to validate
+        there for the validate_email fucniton will validate both email and back_email column
+
+        we can check the columns we are validating by checking hte key attribute. in this case thekey attriute is email and backup_email because those are the column we passed into the decorator.
+
+
